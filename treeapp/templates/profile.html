@@ -1,0 +1,162 @@
+{% extends 'layout.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h1>Account Details</h1>
+<div>
+    {% if msg %}
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>{{ msg }}</p>
+            <button id="reloginButton">Re-login</button>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Profile Image Management -->
+    {% if not is_admin or (is_admin and user_to_edit_id == session['id']) %}
+    <section class="profile-image">
+        <h2>Profile Image</h2>
+        {% if account['profile_image'] %}
+        <div>
+            <img src="{{ url_for('static', filename='img/' ~ account['profile_image']) }}" alt="Profile Image" style="max-width: 150px; max-height: 150px;object-fit: cover; border-radius: 50%;">
+        </div>
+        <form action="{{ url_for('remove_profile_image') }}" method="post" onsubmit="return confirm('Are you sure you want to remove your profile image?');">
+            <div>
+                <input type="submit" value="Remove Profile Image" class="remove_image">
+            </div>
+        </form>
+        {% endif %}
+        <form action="{{ url_for('replace_profile_image') }}" method="post" enctype="multipart/form-data">
+            <label for="profile_image">Replace Image:</label>
+            <input type="file" name="profile_image" id="profile_image" accept="image/*">
+
+            <div>
+                <input type="submit" value="Update Image" class="update_image">
+            </div>
+        </form>
+    </section>
+    {% endif %}
+    <!-- Basic Profile Information -->
+    <section class="profile-info">
+        <h2>Profile Information</h2>
+        <form id="profile-form" action="{{ url_for('profile') if not is_admin or (is_admin and user_to_edit_id == session['id']) else url_for('profile', user_id=account['user_id']) }}" method="post">
+            <table class="profile-table">
+                <tr>
+                    <td>Username:</td>
+                    <td>{{ account['username'] }}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        {% if is_admin and user_to_edit_id != session['id'] %}
+                            {{ account['email'] }}
+                        {% else %}
+                            <input type="email" name="email" value="{{ account['email'] }}">
+                        {% endif %}
+                    </td>
+                </tr>
+                {% if is_admin and user_to_edit_id != session['id'] %}
+                <tr>
+                    <td>Role:</td>
+                    <td>
+                        <select name="role">
+                            <option value="member" {% if account['role'] == 'member' %}selected{% endif %}>Member</option>
+                            <option value="moderator" {% if account['role'] == 'moderator' %}selected{% endif %}>Moderator</option>
+                            <option value="admin" {% if account['role'] == 'admin' %}selected{% endif %}>Admin</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Status:</td>
+                    <td>
+                        <select name="status">
+                            <option value="active" {% if account['status'] == 'active' %}selected{% endif %}>Active</option>
+                            <option value="inactive" {% if account['status'] == 'inactive' %}selected{% endif %}>Inactive</option>
+                        </select>
+                    </td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td>First Name:</td>
+                    <td>
+                        {% if is_admin and user_to_edit_id != session['id'] %}
+                            {{ account['first_name'] }}
+                        {% else %}
+                            <input type="text" name="first_name" value="{{ account['first_name'] }}">
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td>
+                        {% if is_admin and user_to_edit_id != session['id'] %}
+                            {{ account['last_name'] }}
+                        {% else %}
+                            <input type="text" name="last_name" value="{{ account['last_name'] }}">
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td>
+                        {% if is_admin and user_to_edit_id != session['id'] %}
+                            {{ account['birth_date'] }}
+                        {% else %}
+                            <input type="text" name="birth_date" value="{{ account['birth_date'] }}" placeholder="dd/mm/yyyy">
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td>
+                        {% if is_admin and user_to_edit_id != session['id'] %}
+                            {{ account['location'] }}
+                        {% else %}
+                            <input type="text" name="location" value="{{ account['location'] }}">
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+            <div>
+                {% if is_admin and user_to_edit_id != session['id'] %}
+                <input type="submit" value="Update Role and Status" class="update_profile">
+                <a href="{{ url_for('manage_users') }}" class="manage_users">Go Back to Manage Users</a>
+                {% else %}
+                <input type="submit" value="Update Profile" class="update_profile">
+                {% endif %}
+            </div>
+        </form>
+    </section>
+
+    <!-- Password Update -->
+    {% if not is_admin or (is_admin and user_to_edit_id == session['id']) %}
+    <section class="password-update">
+        <h2>Update Password</h2>
+        <form action="{{ url_for('profile') }}" method="post">
+            <table class="password-table">
+            <tr>
+                <td>New Password:</td>
+                <td><input type="password" name="new_password" placeholder="Leave blank to keep current password"></td>
+            </tr>
+            <tr>
+                <td>Confirm New Password:</td>
+                <td><input type="password" name="confirm_new_password" placeholder="Leave blank to keep current password"></td>
+            </tr>
+            </table>
+            <div>
+                <input type="submit" value="Update Password" class="update_password">
+            </div>
+        </form>
+    </section>
+    {% endif %}
+</div>
+
+
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+<script>
+    var logoutUrl = "{{ url_for('logout') }}";
+</script>
+
+{% endblock %}

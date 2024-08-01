@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to Moderator Dashboard</h1>
+<p>Welcome back, {{ first_name }}!
+  Feel free to explore the various discussions and topics related to trees and gardens.
+
+</p>
+    
+    <div class="btn-group">
+      <a href="{{ url_for('messages') }}"><button class="button">Messages Board</button></a>
+    </div>
+{% endblock %}

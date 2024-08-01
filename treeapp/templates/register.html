@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+<body>
+    <div class="register">
+        <h1>Register</h1>
+        <div class="links">
+            <!-- Navigation links to switch between login and registration pages -->
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}" class="active">Register</a>
+        </div>
+        <form id="registerForm" action="{{ url_for('register') }}" method="post" autocomplete="off" onsubmit="return validatePasswords()">
+            <label for="username">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="username" placeholder="Username" id="username" required>
+
+            <label for="password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="password" placeholder="Password" id="password" required>
+
+            <label for="confirm_password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" id="confirm_password" required>
+
+            <label for="email">
+                <i class="fas fa-envelope"></i>
+            </label>
+            <input type="email" name="email" placeholder="Email" id="email" required>
+
+            <label for="first_name">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="first_name" placeholder="First Name" id="first_name" required>
+
+            <label for="last_name">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="last_name" placeholder="Last Name" id="last_name" required>
+
+            <label for="birth_date">
+                <i class="fas fa-calendar-alt"></i>                
+            </label>
+            <input type="text" name="birth_date" placeholder="DD/MM/YYYY" id="birth_date" required>
+
+            <label for="location">
+                <i class="fas fa-map-marker-alt"></i>                
+            </label>
+            <input type="text" name="location" placeholder="Location (e.g., New Zealand, Christchurch, Lincoln, Canterbury, UK, Singapore, etc.)" id="location" required>
+            <!-- Display messages (e.g., errors or success) -->
+            <div class="msg">{{ msg }}</div>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <!-- Link to the JavaScript file for form validation and other scripts -->   
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+</body>
+</html>
