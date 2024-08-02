@@ -69,25 +69,25 @@ Hashing password: All of the passwords have to be hashed when new users register
 
 ## Getting Started
 
-##### To get started with the Tree Talk Message Board:
+#### To get started with the Tree Talk Message Board:
 
-###### Clone the Repository:
+##### Clone the Repository:
 
 git clone https://github.com/Jingjingma826/tree_message_board.git
 
-###### Navigate to the Project Directory:
+##### Navigate to the Project Directory:
 
 cd tree_message_board
 
-###### Install Dependencies:
+##### Install Dependencies:
 
 pip install -r requirements.txt
 
-###### Run the Application:
+##### Run the Application:
 
 python run.py
 
-###### Visit the Application:
+##### Visit the Application:
 
 Open your web browser and go to http://127.0.0.1:5000/ to access the Tree Message Board.
 
