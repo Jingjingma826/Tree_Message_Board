@@ -234,17 +234,6 @@ form table td {
     height: 150px;
 }
 
-/* .messagelink{
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 20px;
-    text-align: left;
-}
-.messagelink a {
-    text-decoration: none;
-    color: inherit; 
-} */
 /*9. Login,logout & register  */
 .login, 
 .register {
