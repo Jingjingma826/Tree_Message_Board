@@ -17,7 +17,7 @@ Hashing password: All of the passwords have to be hashed when new users register
 
 #### User Roles:
 
-- Admin: Can view all users profile, manage all users’ status and roles, and moderate messages and replies.
+- Administrator: Can view all users profile, manage all users’ status and roles, and moderate messages and replies.
 - Moderator: Can moderate messages and replies, and assist with managing discussions , updating their own profile.
 - Member: Can update their own profile, post and delete their own messages, reply to others, and manage their own profile.
 - Session Handling: Secure login and logout functionality, ensuring that users' sessions are managed properly.
