@@ -370,7 +370,7 @@ h1{
 /* Mobile devices */
 @media (max-width: 768px) {
     .login, .register {
-        width: 90%;
+        width: 100%;
     }
 
     .message-list, .new-message {
