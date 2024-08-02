@@ -41,7 +41,7 @@ img {
   }
   .btn{
     background-color: green;
-
+    color: black;
   }
 .btn-group a {
     text-decoration: none;
@@ -370,7 +370,7 @@ h1{
 /* Mobile devices */
 @media (max-width: 768px) {
     .login, .register {
-        width: 100%;
+        width: 95%;
     }
 
     .message-list, .new-message {
@@ -386,4 +386,6 @@ h1{
         width: 100%;
         text-align: center;
     }
+        
+    
 }
