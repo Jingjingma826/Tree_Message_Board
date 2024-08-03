@@ -7,15 +7,17 @@ Welcome to the Tree  Message Board! This web-based forum is designed to help hom
 The Tree Message Board is a web application that allows users to:
 
 - Register and Log In/Out: Create an account, log in, log out and manage your profile.
-- Post and Messages: Share issues or questions about trees and hedges with the community.
-- Reply to Messages: Engage in conversations and provide or receive advice, delete replies.
+- Post and delete Messages: Share issues or questions about trees and hedges with the community.
+- Reply to Messages: Engage in conversations and provide or receive advice.
 - Role-Based Access Control: Different roles (Admins, Moderators, Members) with specific permissions to manage content and users.
+
 
 ## Features
 
 Hashing password: All of the passwords have to be hashed when new users register to be a member.
 
 #### User Roles:
+There are three user roles in this system:
 
 - Administrator: Can view all users profile, manage all users’ status and roles, and moderate messages and replies.
 - Moderator: Can moderate messages and replies, and assist with managing discussions , updating their own profile.
@@ -24,7 +26,41 @@ Hashing password: All of the passwords have to be hashed when new users register
 - Access Control: Role-based permissions to ensure appropriate access levels and actions for different types of users.
 - Message Posting and Replying: Users can post new messages, reply to existing ones, and participate in community discussions.
 
-#### User Passwords:
+Anyone who registers via the app will be a **Member**. The only way to create
+**Staff** or **Admin** accounts in this simple app is to insert them directly
+into the database.
+
+## Getting this Example Running
+
+To run the example yourself, you'll need to:
+
+1. Open the project in Visual Studio Code.
+2. Create yourself a virtual environment.
+3. Install all of the packages listed in requirements.txt (Visual Studio will
+   offer to do this for you during step 2).
+4. Use the [Database Creation Script](<Create Database.sql>) to create your own
+   copy of the **loginexample** database.
+5. Use the [Database Population Script](<Populate Database.sql>) to populate
+   the **tree_message_board** ***users*** table with example users.
+6. Modify [connect.py](treeapp/connect.py) with the connection details for
+   your local database server.
+7. Run [The Python/Flask application](run.py).
+
+At that point, you should be able to register yourself a new **user** account
+or log in using one of the **user**, **staff**, or **admin** accounts listed in
+the [Database Population Script](<Populate Database.sql>).
+
+Enjoy!
+
+## Database Scripts
+
+Database:
+
+- [MySQL script to create the necessary database](<Create Database.sql>)
+- [MySQL script to populate the database with users](<Populate Database.sql>)
+- [Python script to create password hashes](password_hash_generator.py)
+
+## User Passwords:
 
 | Username        | Passwaord   |  Role  |
 | :--------  | :-----  | :----:  |
@@ -66,28 +102,4 @@ Hashing password: All of the passwords have to be hashed when new users register
 - Bootstrap
 - CSS
 - JAVAScript
-
-## Getting Started
-
-### To get started with the Tree Talk Message Board:
-
-#### Clone the Repository:
-
-git clone https://github.com/Jingjingma826/tree_message_board.git
-
-#### Navigate to the Project Directory:
-
-cd tree_message_board
-
-#### Install Dependencies:
-
-pip install -r requirements.txt
-
-#### Run the Application:
-
-python run.py
-
-#### Visit the Application:
-
-Open your web browser and go to http://127.0.0.1:5000/ to access the Tree Message Board.
 
