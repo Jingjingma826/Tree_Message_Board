@@ -136,9 +136,7 @@ form table td:first-child {
 form table td:last-child {
   text-align: left;
 }
-form {
-  margin-bottom: 10px;
-}
+
 form table td {
   width: 50%;
 }
@@ -226,6 +224,13 @@ form table td {
 .message .delete-message:hover {
   background-color: grey;
 }
+
+.reply-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
 .form-group {
   text-align: left;
   font-weight: bold;
