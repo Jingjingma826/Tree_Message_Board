@@ -45,6 +45,7 @@ img {
   background-color: green;
   color: white;
   border: 0;
+  font-weight: bold;
 }
 .btn-group a {
   text-decoration: none;
@@ -66,21 +67,10 @@ img {
   padding: 10px;
   color: white;
   border: none;
+  font-weight: bold;
 }
 /* 5. Forms and Input Fields */
-/* .login form input[type="password"], 
-.login form input[type="text"], 
-.login form input[type="email"], 
-.register form input[type="password"], 
-.register form input[type="text"], 
-.register form input[type="email"],
-.register form input[type="date"] {
-    width: 310px;
-    height: 50px;
-    border: 1px solid #dee0e4;
-    margin-bottom: 20px;
-    padding: 0 15px;
-} */
+
 .login form input[type="submit"],
 .register form input[type="submit"] {
   width: 100%;
@@ -98,10 +88,7 @@ img {
   background-color: green;
   transition: background-color 0.2s;
 }
-/* input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
-    width:350px; 
-    box-sizing: border-box; 
-} */
+
 
 /* 6. Table style */
 table {
@@ -194,12 +181,14 @@ form table td {
   border: 1px solid #ddd;
   border-radius: 8px;
   text-align: left;
+  font-weight: bold;
 }
 .replies {
   margin-left: 20px;
   border-left: 3px solid grey;
   padding-left: 10px;
   text-align: left;
+  font-weight: bold;
 }
 
 .new-message-container {
@@ -381,6 +370,7 @@ h1 {
   font-weight: bold;
 }
 
+/* 12. Media Queries */
 @media only screen and (max-width: 768px) {
     .navtop div {
       flex-direction: column;
@@ -398,38 +388,3 @@ h1 {
         width: 90%;
     }
   }
-
-/* 12. Media Queries */
-
-/* Tablet devices (landscape) */
-/* @media (max-width: 1024px) {
-    .message-list, .new-message {
-        width: 80%;
-    }
-
-    .navtop div {
-        width: 90%;
-    }
-} */
-
-/* Mobile devices */
-/* @media (max-width: 768px) {
-    .login, .register {
-        width: 95%;
-    }
-
-    .message-list, .new-message {
-        width: 100%;
-    }
-
-    .navtop div {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .bottom-container {
-        width: 100%;
-    }
-        
-    
-} */
