@@ -376,7 +376,7 @@ h1 {
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .navtop div {
       flex-direction: column;
       background-color: red;
