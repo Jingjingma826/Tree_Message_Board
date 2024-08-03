@@ -376,9 +376,10 @@ h1 {
   font-weight: bold;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .navtop div {
       flex-direction: column;
+      background-color: red;
     }
   
     .navtop div a:last-child {
