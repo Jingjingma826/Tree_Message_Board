@@ -42,13 +42,15 @@
     <section class="profile-info">
         <h2>Profile Information</h2>
         <form id="profile-form" action="{{ url_for('profile') if not is_admin or (is_admin and user_to_edit_id == session['id']) else url_for('profile', user_id=account['user_id']) }}" method="post">
+            <div style="overflow-x:auto;" >
+
             <table class="profile-table">
                 <tr>
                     <td>Username:</td>
                     <td>{{ account['username'] }}</td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
+                    <td><span>Email:</span></td>
                     <td>
                         {% if is_admin and user_to_edit_id != session['id'] %}
                             {{ account['email'] }}
@@ -119,6 +121,7 @@
                     </td>
                 </tr>
             </table>
+            </div>
             <div>
                 {% if is_admin and user_to_edit_id != session['id'] %}
                 <input type="submit" value="Update Role and Status" class="update_profile">

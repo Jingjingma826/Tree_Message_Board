@@ -1,67 +1,151 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-</head>
-<body>
-    <div class="register">
-        <h1>Register</h1>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to the Tree Talk Message Board</h1>
+      <div>
+        <img
+          src="{{ url_for('static', filename='img/tree.jpg') }}"
+          alt="Tree Logo"
+        />
+      </div>
+      <div class="register">
         <div class="links">
-            <!-- Navigation links to switch between login and registration pages -->
-            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('login') }}" >Login</a>
             <a href="{{ url_for('register') }}" class="active">Register</a>
-        </div>
-        <form id="registerForm" action="{{ url_for('register') }}" method="post" autocomplete="off" onsubmit="return validatePasswords()">
+          </div>
+        <form
+          id="registerForm"
+          action="{{ url_for('register') }}"
+          method="post"
+          autocomplete="off"
+          onsubmit="return validatePasswords()"
+          class="register-form"
+        >
+          <div class="item">
             <label for="username">
                 <i class="fas fa-user"></i>
-            </label>
-            <input type="text" name="username" placeholder="Username" id="username" required>
+              </label>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                id="username"
+                required
+              />
+          </div>
 
-            <label for="password">
-                <i class="fas fa-lock"></i>
-            </label>
-            <input type="password" name="password" placeholder="Password" id="password" required>
+          
+          <div class="item">
+          <label for="password">
+            <i class="fas fa-lock"></i>
+          </label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            id="password"
+            required
+          />
+</div>
 
-            <label for="confirm_password">
-                <i class="fas fa-lock"></i>
-            </label>
-            <input type="password" name="confirm_password" placeholder="Confirm Password" id="confirm_password" required>
+<div class="item">
+          <label for="confirm_password">
+            <i class="fas fa-lock"></i>
+          </label>
+          <input
+            type="password"
+            name="confirm_password"
+            placeholder="Confirm Password"
+            id="confirm_password"
+            required
+          />
+</div>
 
-            <label for="email">
-                <i class="fas fa-envelope"></i>
-            </label>
-            <input type="email" name="email" placeholder="Email" id="email" required>
+<div class="item">
+          <label for="email">
+            <i class="fas fa-envelope"></i>
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            id="email"
+            required
+          />
+</div>
 
-            <label for="first_name">
-                <i class="fas fa-user"></i>
-            </label>
-            <input type="text" name="first_name" placeholder="First Name" id="first_name" required>
+<div class="item">
+          <label for="first_name">
+            <i class="fas fa-user"></i>
+          </label>
+          <input
+            type="text"
+            name="first_name"
+            placeholder="First Name"
+            id="first_name"
+            required
+          />
+</div>
 
-            <label for="last_name">
-                <i class="fas fa-user"></i>
-            </label>
-            <input type="text" name="last_name" placeholder="Last Name" id="last_name" required>
+<div class="item">
+          <label for="last_name">
+            <i class="fas fa-user"></i>
+          </label>
+          <input
+            type="text"
+            name="last_name"
+            placeholder="Last Name"
+            id="last_name"
+            required
+          />
+</div>
 
-            <label for="birth_date">
-                <i class="fas fa-calendar-alt"></i>                
-            </label>
-            <input type="text" name="birth_date" placeholder="DD/MM/YYYY" id="birth_date" required>
+<div class="item">
+          <label for="birth_date">
+            <i class="fas fa-calendar-alt"></i>
+          </label>
+          <input
+            type="text"
+            name="birth_date"
+            placeholder="DD/MM/YYYY"
+            id="birth_date"
+            required
+          />
+</div>
 
-            <label for="location">
-                <i class="fas fa-map-marker-alt"></i>                
-            </label>
-            <input type="text" name="location" placeholder="Location (e.g., New Zealand, Christchurch, Lincoln, Canterbury, UK, Singapore, etc.)" id="location" required>
-            <!-- Display messages (e.g., errors or success) -->
-            <div class="msg">{{ msg }}</div>
-            <input type="submit" value="Register">
+<div class="item">
+          <label for="location">
+            <i class="fas fa-map-marker-alt"></i>
+          </label>
+          <input
+            type="text"
+            name="location"
+            placeholder="Location (e.g., New Zealand, Christchurch, Lincoln, Canterbury, UK, Singapore, etc.)"
+            id="location"
+            required
+          />
+          </div>
+          <!-- Display messages (e.g., errors or success) -->
+          <div class="msg">{{ msg }}</div>
+          <input type="submit" value="Register" />
         </form>
+      </div>
     </div>
-    <!-- Link to the JavaScript file for form validation and other scripts -->   
+    <!-- Link to the JavaScript file for form validation and other scripts -->
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-
-</body>
+  </body>
 </html>
